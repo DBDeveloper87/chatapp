@@ -58,4 +58,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "hotwire-rails", "~> 0.1.3"
 gem "haml-rails", "~> 2.0"
 
-gem "rspec-rails", "~> 4.0", :group => :test
