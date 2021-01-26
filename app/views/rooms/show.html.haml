@@ -1,14 +1,22 @@
-%p#notice #{notice}
+.alert.alert-success #{notice}
 
-= turbo_stream_from @room 
+.container-fluid.border.border-dark.m-4{style: "height: 500px"}
+	.h-75.m-4.border.border-dark.rounded-lg.p-4
+		= turbo_stream_from @room 
 
-= turbo_frame_tag "room" do 
-  = render @room 
+		= turbo_frame_tag "room" do 
+			.w-100.m-0.border.border-dark
+				.float-left.border.border-dark.p-1.mr-1
+					= link_to 'Back', rooms_path, "data-turbo-frame": "_top"
+				.w-100.p-1.mr-1.ml-1.border.border-dark
+					= render @room 
+				.float-right.p-1.ml-1.border.border-dark
+					= link_to 'Edit', edit_room_path(@room) 
+			 
+			#messages
+				= render @room.messages
 
-  %p #{link_to 'Edit', edit_room_path(@room)} | #{link_to 'Back', rooms_path, "data-turbo-frame": "_top"}
 
-#messages
-  = render @room.messages
+		.w-100.border.border-dark
+			= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top"
 
-
-= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top"
