@@ -4,6 +4,6 @@
   = form_with(model: [ @message.room, @message ], data: { controller: "reset_form", action: "turbo:submit-end->reset_form#reset" }) do |form| 
     .field
       = form.text_field :content 
-      = form.submit "Send"
+      = form.submit "Send", data: { disable_with: false }
     
 = link_to 'Back', @message.room 
