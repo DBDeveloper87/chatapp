@@ -1,7 +1,5 @@
 .container-fluid.p-4.h-100
 	.h-100.p-4.border.border-dark.rounded-lg.p-4
-		.alert.alert-success #{notice}
-
 		= turbo_stream_from @room 
 
 		= turbo_frame_tag "room" do 
