@@ -1,7 +1,7 @@
 .alert.alert-success #{notice}
 
-.container-fluid.border.border-dark.m-4{style: "height: 500px"}
-	.h-75.m-4.border.border-dark.rounded-lg.p-4
+.container-fluid.border.border-dark.m-4.h-100
+	.h-100.m-4.border.border-dark.rounded-lg.p-4
 		= turbo_stream_from @room 
 
 		= turbo_frame_tag "room" do 
