@@ -1,22 +1,24 @@
-.alert.alert-success #{notice}
+.container-fluid.p-4.h-100
+	.h-100.p-4.border.border-dark.rounded-lg.p-4
+		.alert.alert-success #{notice}
 
-.container-fluid.border.border-dark.m-4.h-100
-	.h-100.m-4.border.border-dark.rounded-lg.p-4
 		= turbo_stream_from @room 
 
 		= turbo_frame_tag "room" do 
 			.w-100.m-0.border.border-dark
-				.float-left.border.border-dark.p-1.mr-1
-					= link_to 'Back', rooms_path, "data-turbo-frame": "_top"
-				.w-100.p-1.mr-1.ml-1.border.border-dark
-					= render @room 
-				.float-right.p-1.ml-1.border.border-dark
-					= link_to 'Edit', edit_room_path(@room) 
+				.row.m-0
+					.col-md-1.p-0.border.border-dark
+						= link_to 'Back', rooms_path, "data-turbo-frame": "_top", class: "btn btn-primary", role: "button"
+					.col-md-10.p-0.border.border-dark
+						= render @room 
+					.col-md-1.p-0.text-right.border.border-dark
+						= link_to 'Edit', edit_room_path(@room), class: "btn btn-primary", role: "button"
 			 
 			#messages
 				= render @room.messages
 
 
-		.w-100.border.border-dark
+		.w-100.border.border-dark.align-bottom
 			= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top"
+
 
