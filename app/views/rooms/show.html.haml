@@ -17,6 +17,7 @@
 			
 
 
-		= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top"
+		.container-fluid.border.border-dark{style: "position: absolute; bottom: 10px;"}
+			= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top"
 
 
