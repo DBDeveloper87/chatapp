@@ -2,8 +2,7 @@
 
 = turbo_frame_tag "new_message", target: "_top" do 
   = form_with(model: [ @message.room, @message ], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| 
-    .field
-      = form.text_field :content, placeholder: "Typpe a Message" 
-      = form.submit "Send", data: { disable_with: false }
+    = form.text_field :content, placeholder: "Type a message"
+    = form.submit "Send", data: { disable_with: false }
     
 = link_to 'Back', @message.room 
