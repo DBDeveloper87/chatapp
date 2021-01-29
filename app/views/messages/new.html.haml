@@ -2,9 +2,7 @@
 
 = turbo_frame_tag "new_message", target: "_top" do 
   = form_with(model: [ @message.room, @message ], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| 
-    .input-group.border.border-dark{style: "position: absolute; bottom: 10px;"}
-    	= form.text_field :content, placeholder: "Type a message", class: "form-control"
-    	.input-group-append
-    		= form.submit "Send", data: { disable_with: false }, class: "btn btn-primary", role: "button"
+    = form.text_field :content, placeholder: "Type a message", class: "form-control"
+    = form.submit "Send", data: { disable_with: false }, class: "btn btn-primary", role: "button"
     
 = link_to 'Back', @message.room 
